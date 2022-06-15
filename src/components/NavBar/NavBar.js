@@ -1,4 +1,5 @@
-import stor from "../assets/STOR.png";
+import stor from "../../assets/STOR.png";
+import "./NavBar.css";
 
 const styles = {
     header: {
@@ -40,20 +41,20 @@ const styles = {
 
 const NavBar = () => {
     return(
-        <header style={styles.header}>
-            <div style={styles.div}>
-                <img style={styles.img} src={stor} alt="" />
+        <header className="header">
+            <div className="div">
+                <img className="img" src={stor} alt="" />
             </div>
             <h1>Stor</h1>
-            <ul style={styles.ul}>
-                <li style={styles.li}><a style={styles.a} href="">About Us</a></li>
-                <li style={styles.li}><a style={styles.a} href="">Our Products</a></li>
-                <li style={styles.li}><a style={styles.a} href="">Contact Us</a></li>
+            <ul className="ul">
+                <li className="li links"><a className="a" href="">About Us</a></li>
+                <li className="li links"><a className="a" href="">Our Products</a></li>
+                <li className="li links"><a className="a" href="">Contact Us</a></li>
             </ul>
             <div>
-                <ul style={styles.ul}>
-                    <li style={styles.li}><a style={styles.button} href="">Log In</a></li>
-                    <li style={styles.li}><a style={styles.button} href="">Register</a></li>
+                <ul className="ul">
+                    <li className="li"><a className="button" href="">Log In</a></li>
+                    <li className="li"><a className="button" href="">Register</a></li>
                 </ul>
             </div>
         </header>
