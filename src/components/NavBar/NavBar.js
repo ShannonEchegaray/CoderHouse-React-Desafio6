@@ -1,43 +1,6 @@
 import stor from "../../assets/STOR.png";
+import CartWidget from "../CartWidget/CartWidget";
 import "./NavBar.css";
-
-const styles = {
-    header: {
-        backgroundColor: "#ffe0cf",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        overflow: "hidden"
-    },
-    ul: {
-        listStyleType: "none",
-        padding: 5
-    },
-    li: {
-        display: "inline-block",
-        margin: 5
-    },
-    a: {
-        textDecoration: "none"
-    },
-    div: {
-        width: "20%",
-        maxWidth: "80px",
-        padding: 5 
-    },
-    img: {
-        width: "100%",
-        height: "auto"
-    },
-    button: {
-        textDecoration: "none",
-        margin: "0 2px",
-        padding: "1em",
-        borderRadius: "1em",
-        backgroundColor: "#157A6E",
-        color: "white"
-    }
-};
 
 const NavBar = () => {
     return(
@@ -57,6 +20,7 @@ const NavBar = () => {
                     <li className="li"><a className="button" href="">Register</a></li>
                 </ul>
             </div>
+            <CartWidget />
         </header>
     );
 }
