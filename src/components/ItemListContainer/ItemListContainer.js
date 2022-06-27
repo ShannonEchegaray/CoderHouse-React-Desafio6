@@ -4,8 +4,12 @@ import React from "react";
 
 const ItemListContainer = ({greeting}) => {
 
-  const onAdd = () => {
-    alert("Se compro el producto");
+  const onAdd = (counter, stock) => {
+    if(counter <= stock){
+      alert("Se compro el producto");
+    } else {
+      alert("No hay stock disponible. \nEl Stock disponible es de " + stock);
+    }
   }
 
   return (
@@ -17,7 +21,7 @@ const ItemListContainer = ({greeting}) => {
         <li>Producto 3</li>
       </ul>
       <ItemCount
-      stock={20} initial={1} onAdd={onAdd}
+      stock={0} initial={1} onAdd={onAdd}
       />
     </>
   )

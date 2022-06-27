@@ -44,3 +44,9 @@
 .contadorBoton:hover{
     background-color: #f3d6c6;
 }
+
+.error{
+    color:red;
+    text-align: center;
+    font-size: 0.75em;
+}
