@@ -1,0 +1,46 @@
+.divContador{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.contador{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #157A6E;
+    border-radius: 5px;
+    height: 2em;
+    width: 6em;
+    margin-bottom: 20px;
+    overflow: hidden;
+    background-color: #d8bdae;
+}
+
+.contador > button{
+    width: 20%;
+    height: 100%;
+    border: none;
+    background-color: #ffe0cf;
+}
+
+.contador > button:hover{
+    background-color: #f3d6c6;
+}
+
+.contador > h4{
+    margin: 0;
+    flex-grow: 1;
+}
+
+.contadorBoton{
+    padding: 5px;
+    border: 1px solid #157A6E;
+    border-radius: 5px;
+    background-color: #ffe0cf;
+}
+
+.contadorBoton:hover{
+    background-color: #f3d6c6;
+}
