@@ -1,6 +1,8 @@
 import "./ItemListContainer.css";
 import ItemCount from "../itemCount/ItemCount";
-import React from "react";
+import React, {useState, useEffect} from "react";
+import ItemList from "../ItemList/ItemList";
+import {data} from "../productos";
 
 const ItemListContainer = ({greeting}) => {
 
@@ -12,14 +14,23 @@ const ItemListContainer = ({greeting}) => {
     }
   }
 
+  const [products, setProducts] = useState([])
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        setTimeout(async () => {
+            const response = await fetch(data);
+            const data = await response.json();
+            setProducts(data);
+            setLoading(false);
+        }, 2000)
+        
+    }, []);
+
   return (
     <>
       <h2>Bienvenido/a {greeting}</h2>
-      <ul className="listaProductos">
-        <li>Producto 1</li>
-        <li>Producto 2</li>
-        <li>Producto 3</li>
-      </ul>
+      {loading? <h2>Cargando...</h2> : <ItemList items={products} />}
       <ItemCount
       stock={20} initial={1} onAdd={onAdd}
       />
