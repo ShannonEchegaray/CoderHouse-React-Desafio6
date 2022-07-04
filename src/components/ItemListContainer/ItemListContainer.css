@@ -3,3 +3,7 @@
         font-weight: 500;
         padding: 0;
     }
+
+    .Error{
+        color: red;
+    }

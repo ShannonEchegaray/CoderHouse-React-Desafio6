@@ -2,7 +2,8 @@ import "./ItemListContainer.css";
 import ItemCount from "../itemCount/ItemCount";
 import React, {useState, useEffect} from "react";
 import ItemList from "../ItemList/ItemList";
-import {data} from "../productos";
+import PulseLoader from "react-spinners/PulseLoader";
+import {data} from "../../data/productos" 
 
 const ItemListContainer = ({greeting}) => {
 
@@ -19,10 +20,17 @@ const ItemListContainer = ({greeting}) => {
 
     useEffect(() => {
         setTimeout(async () => {
+          try{
             const response = await fetch(data);
-            const data = await response.json();
-            setProducts(data);
+            const datos = await response.json();
+            setProducts(datos);
+          } catch (error) {
+            setProducts(error)
+            console.log(error)
+          } finally {
             setLoading(false);
+          }
+            
         }, 2000)
         
     }, []);
@@ -30,7 +38,12 @@ const ItemListContainer = ({greeting}) => {
   return (
     <>
       <h2>Bienvenido/a {greeting}</h2>
-      {loading? <h2>Cargando...</h2> : <ItemList items={products} />}
+      {loading
+              ? (<><h2>Cargando...</h2>
+                <PulseLoader size={10} color="#157A6E" cssOverride={{margin: "2em"}} /></>)
+              : Array.isArray(products)
+              ? <ItemList items={products} /> 
+              : <h4 className="Error">Ha surgido un error interno, por favor reiniciar la pagina</h4>}
       <ItemCount
       stock={20} initial={1} onAdd={onAdd}
       />
