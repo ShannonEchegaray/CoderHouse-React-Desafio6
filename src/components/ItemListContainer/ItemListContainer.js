@@ -3,7 +3,6 @@ import ItemCount from "../itemCount/ItemCount";
 import React, {useState, useEffect} from "react";
 import ItemList from "../ItemList/ItemList";
 import PulseLoader from "react-spinners/PulseLoader";
-import {data} from "../../data/productos" 
 
 const ItemListContainer = ({greeting}) => {
 
@@ -21,7 +20,7 @@ const ItemListContainer = ({greeting}) => {
     useEffect(() => {
         setTimeout(async () => {
           try{
-            const response = await fetch(data);
+            const response = await fetch("./productos.json");
             const datos = await response.json();
             setProducts(datos);
           } catch (error) {
