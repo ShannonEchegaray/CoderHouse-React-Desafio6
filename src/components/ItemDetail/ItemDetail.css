@@ -1,0 +1,34 @@
+.ItemDetail{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.ItemDetailImg{
+    width: 40%;
+}
+
+.ItemDetailImg > img{
+    width: 20vw;
+    height: 20vh;
+}
+
+.ItemDetails{
+    width: 50%;
+}
+
+.ItemDetailTitle{
+    font-size: 1.2em;
+    font-weight: 600;
+    margin: 0.3em 0;
+}
+
+.ItemDetails{
+    font-size: 0.8em;
+}
+
+.ItemDetailPrice{
+    font-size: 0.8em;
+}
+
