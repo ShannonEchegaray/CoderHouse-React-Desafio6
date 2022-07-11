@@ -1,37 +1,39 @@
 import React, { useEffect, useState } from 'react';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import PulseLoader from "react-spinners/PulseLoader";
-import "./ItemDetailContainer.css"
+import "./ItemDetailContainer.css";
+import {productos} from "../../data/productos"
+import {useParams} from "react-router-dom";
+
+const promise = () => {
+  return new Promise((res, rej) => {
+    setTimeout(() => {
+        res(productos);
+    }, 2000);
+  });
+}
 
 const ItemDetailContainer = () => {
+
+  const {id} = useParams()
 
   const [product, setProduct] = useState({})
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const getItem = () => {
-      return new Promise((resolve, reject) => {
-        setTimeout(async () => {
-          try {
-            const response = await fetch("./producto.json");
-            const datos = await response.json();
-            resolve(datos)
-          } catch (error) {
-            reject(error)
-          }  
-        });
-      }, 2000);
-        
+    const getItem = async () => {
+      try {
+        const datos = await promise();
+        const filtro = datos.filter(el => el.id === id)
+        setProduct(filtro[0]);
+      } catch (error) {
+        setProduct(new Error(error))
+      } finally {
+        setLoading(false);
+      }
     }
 
-    getItem()
-      .then(items => {
-        setProduct(items);
-        console.log(items);
-        setLoading(false);
-      })
-      .catch(error => setProduct(new Error(error)))
-    
+    getItem();    
   }, []);
 
   return (

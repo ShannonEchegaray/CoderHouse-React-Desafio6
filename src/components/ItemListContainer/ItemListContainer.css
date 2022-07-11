@@ -1,4 +1,6 @@
     .listaProductos{
+        position: relative;
+        z-index: 5;
         list-style-type: none;
         font-weight: 500;
         padding: 0;

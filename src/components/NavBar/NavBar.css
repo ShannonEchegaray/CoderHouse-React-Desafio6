@@ -3,10 +3,47 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    overflow: hidden;
     padding: 0 10px;
 }
+
+.desplegable{
+    position: relative;
+}
+
+.desplegable > ul{
+    position: absolute;
+    background-color: #e7cbbb;
+    list-style-type: none;
+    padding: 5px;
+    margin: 0;
+    width: 150%;
+    z-index: 200;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+}
+
+.desplegable > ul > li{
+    margin: 10px 0;
+}
+
+.desplegable > ul > li > a{
+    padding: 5px;
+    text-decoration: none;
+    color: black;
+}
+
+.desplegable > ul > li > a:hover{
+    background-color: #d8bdae;
+}
+
+.desplegable:hover > ul{
+    display: block;
+}
+
 .ul{
+    display: flex;
     list-style-type: none;
     padding: 5;
 }
@@ -19,6 +56,7 @@
 }
 .a{
     text-decoration: none;
+    color: black;
 }
 .div{
     width: 20%;
