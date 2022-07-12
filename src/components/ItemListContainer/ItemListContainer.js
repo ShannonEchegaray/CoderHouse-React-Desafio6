@@ -26,8 +26,8 @@ const ItemListContainer = ({ greeting }) => {
       try {
         setLoading(true)
         const datos = await promise()
-        const filtro = datos.filter(el => el.category == categories)
-        setProducts(filtro);
+        const filtro = categories && datos.filter(el => el.category == categories)
+        categories ? setProducts(filtro) : setProducts(datos);
       } catch (error) {
         setProducts(error)
         console.log(error)
