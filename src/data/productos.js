@@ -31,7 +31,7 @@ export const productos = [
         name: "Planchas de carton",
         category: "big-boxes",
         price: 70,
-        img: "/caja-circular.png",
+        img: "/planchas-carton.png",
         description: "Planchas de carton para cajas mas grandes de 60x80. Medidas 100x100",
         alt: "Imagen de una plancha de carton"
     },
