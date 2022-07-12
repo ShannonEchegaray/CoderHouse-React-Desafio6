@@ -10,13 +10,26 @@
     position: relative;
 }
 
+.flecha{
+    position: absolute;
+    transform: translateX(-50%);
+    bottom: -1.2em;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-top: 10px solid gray;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent; 
+
+}
+
 .desplegable > ul{
     position: absolute;
     background-color: #e7cbbb;
     list-style-type: none;
     padding: 5px;
     margin: 0;
-    width: 150%;
+    width: 170%;
     z-index: 200;
     top: 100%;
     left: 50%;
@@ -54,6 +67,7 @@
 .links{
     margin: 0 1em;
 }
+
 .a{
     text-decoration: none;
     color: black;

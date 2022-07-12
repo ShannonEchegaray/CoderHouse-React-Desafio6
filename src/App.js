@@ -14,6 +14,7 @@ const App = () => {
         <ItemDetailContainer /> */}
         <Routes>
           <Route path="/" element={<ItemListContainer />} />
+          <Route path="/our-products" element={<ItemListContainer />}></Route>
           <Route path="/products/:categories" element={<ItemListContainer />} />
           <Route path="/products/:categories/:id" element={<ItemDetailContainer />} />
           <Route path="/cart" element={<Cart />} />

@@ -22,10 +22,11 @@ const NavBar = () => {
             <ul className="ul">
                 <li className="li links"><Link className="a" to="/about-us">About Us</Link></li>
                 <li className="desplegable">
-                    <Link className="a" to="/our-products">Our Products</Link>
+                    <Link className="a" to="/our-products">Categories</Link>
                     <ul>
                         {categorias.map((categorias, index) => <li key={index} className=""><Link to={categorias.router}>{categorias.type}</Link></li>)}
                     </ul>
+                    <div className="flecha"></div>
                 </li>    
                 <li className="li links"><Link className="a" to="/contact-us">Contact Us</Link></li>
             </ul>
