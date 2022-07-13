@@ -1,12 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {Link} from "react-router-dom"
 import ItemCount from '../itemCount/ItemCount';
 import "./ItemDetail.css"
 
 const ItemDetail = ({item}) => {
 
+  const [purchase, setPurchase] = useState(false)
+
     const onAdd = (counter, stock) => {
         if (counter <= stock) {
-          alert("Se compro el producto");
+          setPurchase(true)
         } else {
           alert("No hay stock disponible. \nEl Stock disponible es de " + stock);
         }
@@ -21,7 +24,12 @@ const ItemDetail = ({item}) => {
             <p className="ItemDetailTitle">{item.name}</p>
             <p className="ItemDetailDescription">{item.description}</p>
             <p className="ItemDetailPrice">Precio: ${item.price}</p>
-            <ItemCount stock={20} initial={1} onAdd={onAdd} />
+            {
+              purchase 
+              ? <Link className='contadorBoton' to="/cart">Finalizar Compra</Link>
+              : <ItemCount stock={20} initial={1} onAdd={onAdd} />
+            }
+            
         </div>
     </div>
   )
