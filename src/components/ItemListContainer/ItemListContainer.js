@@ -8,7 +8,6 @@ import {useParams} from "react-router-dom"
 const promise = () => {
   return new Promise((res, rej) => {
     setTimeout(() => {
-        console.log(productos)
         res(productos);
     }, 2000);
   });

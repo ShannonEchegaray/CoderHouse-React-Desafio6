@@ -6,7 +6,8 @@ export const productos = [
         price: 18,
         img: "/caja-pequeña.png",
         description: "Caja pequeña para packaging. Medidas 20x40",
-        alt: "Imagen de una caja pequeña"
+        alt: "Imagen de una caja pequeña",
+        stock: 20
     },
     {
         id: "2",
@@ -15,7 +16,8 @@ export const productos = [
         price: 36,
         img: "/caja-mediana.png",
         description: "Caja Mediana para packaging y mudanzas. Medidas 60x80",
-        alt: "Imagen de una caja mediana"
+        alt: "Imagen de una caja mediana",
+        stock: 20
     },
     {
         id: "3",
@@ -24,7 +26,8 @@ export const productos = [
         price: 22,
         img: "/caja-circular.png",
         description: "Caja Mediana para packaging. Medidas 22x24",
-        alt: "Imagen de una caja circular"
+        alt: "Imagen de una caja circular",
+        stock: 20
     },
     {
         id: "4",
@@ -33,7 +36,8 @@ export const productos = [
         price: 70,
         img: "/planchas-carton.png",
         description: "Planchas de carton para cajas mas grandes de 60x80. Medidas 100x100",
-        alt: "Imagen de una plancha de carton"
+        alt: "Imagen de una plancha de carton",
+        stock: 20
     },
     {
         id: "5",
@@ -42,7 +46,8 @@ export const productos = [
         price: 15,
         img: "/caja-manija.png",
         description: "Cajas con manija para packaging. Medidas 15x20",
-        alt: "Imagen de una Caja de carton con manija"
+        alt: "Imagen de una Caja de carton con manija",
+        stock: 20
     },
     {
         id: "6",
@@ -51,7 +56,8 @@ export const productos = [
         price: 100,
         img: "/caja-embalaje.png",
         description: "Rollo de carton para embalaje. Medidas 60x80x250",
-        alt: "Imagen de una Rollo de carton"
+        alt: "Imagen de una Rollo de carton",
+        stock: 20
     }
 ]
 
