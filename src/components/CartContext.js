@@ -3,7 +3,7 @@ import React, {createContext, useState} from 'react'
 export const contexto = createContext();
 const {Provider} = contexto;
 
-const CustomProvider = ({children}) => {
+const CartContext = ({children}) => {
 
     const [items, setItems] = useState([])
 
@@ -18,15 +18,22 @@ const CustomProvider = ({children}) => {
       } else {
         setItems([...items, item])
       }
-      console.log(items)
     }
 
     const removerItem = (itemId) => {
-      [...items].splice(items.indexOf(items.find(el => el.id == itemId)), 1)
+      setItems([...items].filter(el => el.id != itemId))
     }
 
     const limpiar = () => {
       setItems([])
+    }
+
+    const calcularTotal = () => {
+      return items.reduce((acc, el) => acc + (el.qty * el.price), 0)
+    }
+
+    const articulosObtenidos = () => {
+      return items.length;
     }
 
     const estaEnLista = (id) => {
@@ -35,10 +42,10 @@ const CustomProvider = ({children}) => {
 
 
   return (
-    <Provider value={{items, agregarItem, removerItem, limpiar}}>
+    <Provider value={{items, agregarItem, removerItem, limpiar, calcularTotal, articulosObtenidos}}>
         {children}
     </Provider>
   )
 }
 
-export default CustomProvider
+export default CartContext

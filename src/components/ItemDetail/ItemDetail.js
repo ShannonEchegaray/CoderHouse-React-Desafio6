@@ -2,7 +2,7 @@ import React, {useState, useContext} from 'react';
 import {Link} from "react-router-dom"
 import ItemCount from '../itemCount/ItemCount';
 import "./ItemDetail.css"
-import {contexto} from "../Context"
+import {contexto} from "../CartContext"
 
 const ItemDetail = ({item}) => {
 
