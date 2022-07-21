@@ -29,10 +29,8 @@ const ItemListContainer = ({ greeting }) => {
         categories ? setProducts(filtro) : setProducts(datos);
       } catch (error) {
         setProducts(error)
-        console.log(error)
       } finally {
         setLoading(false);
-        console.log(products)
       }
     }
     getItems()
