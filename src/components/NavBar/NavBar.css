@@ -90,4 +90,37 @@
     color: white;
 }
 
+.CarritoNumero{
+    position: relative;
+}
 
+.CarritoNumero ::before{
+    content: "";
+    position: absolute;
+    bottom: 50%;
+    right: 50%;
+    transform: translate(35%, 35%);
+    width: 0%;
+    height: 0%;
+    border-radius: 50%;
+    background-color: #157a6e4d;
+    transition: 0.2s;
+}
+
+.CarritoNumero:active ::before{
+    width: 250%;
+    height: 250%;
+    transition: 0.2s;
+}
+
+.numeroCarrito{
+    position: absolute;
+    right: 0%;
+    bottom: 10%;
+    width: 1.2em;
+    height: 1.2em;
+    background-color: #157A6E;
+    color: white;
+    border-radius: 50%;
+    line-height: 1.2em;
+}

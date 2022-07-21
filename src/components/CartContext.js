@@ -33,7 +33,7 @@ const CartContext = ({children}) => {
     }
 
     const articulosObtenidos = () => {
-      return items.length;
+      return items.reduce((acc, el) => acc + el.qty, 0);
     }
 
     const estaEnLista = (id) => {
