@@ -6,9 +6,12 @@ const CartWidget = () => {
 
     const { articulosObtenidos } = useContext(contexto)
 
+    let cantidadArticulos = articulosObtenidos()
+
     return(
         <>
             <div className="CarritoNumero">
+                {cantidadArticulos? <div className='numeroCarrito'>{cantidadArticulos}</div> : null}
                 <ShoppingCartIcon color="success" fontSize='large'/>
             </div>
         </>

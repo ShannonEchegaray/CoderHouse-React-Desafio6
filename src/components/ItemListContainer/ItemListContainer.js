@@ -30,10 +30,8 @@ const ItemListContainer = ({ greeting }) => {
         setProducts(result)
       } catch (error) {
         setProducts(error)
-        console.log(error)
       } finally {
         setLoading(false);
-        console.log(products)
       }
     }
     getItems()
