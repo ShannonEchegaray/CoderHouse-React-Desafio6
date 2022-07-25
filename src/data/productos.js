@@ -4,7 +4,7 @@ export const productos = [
         name: "Caja pequeña",
         category: "small-boxes",
         price: 18,
-        img: "/caja-pequeña.png",
+        img: "https://i.imgur.com/TrScTtq.png",
         description: "Caja pequeña para packaging. Medidas 20x40",
         alt: "Imagen de una caja pequeña",
         stock: 20

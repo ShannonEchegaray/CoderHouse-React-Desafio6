@@ -2,16 +2,10 @@ import "./ItemListContainer.css";
 import React, { useState, useEffect } from "react";
 import ItemList from "../ItemList/ItemList";
 import PulseLoader from "react-spinners/PulseLoader";
-import {productos} from "../../data/productos"
 import {useParams} from "react-router-dom"
+import {db} from "../firebase/firebase"
+import {collection, getDocs, query, where} from "firebase/firestore"
 
-const promise = () => {
-  return new Promise((res, rej) => {
-    setTimeout(() => {
-        res(productos);
-    }, 2000);
-  });
-}
 
 const ItemListContainer = ({ greeting }) => {
 
@@ -24,9 +18,16 @@ const ItemListContainer = ({ greeting }) => {
     const getItems = async () => {
       try {
         setLoading(true)
-        const datos = await promise()
-        const filtro = categories && datos.filter(el => el.category == categories)
-        categories ? setProducts(filtro) : setProducts(datos);
+
+        const productsCollection =collection(db, "productos");
+        const filtro = categories && query(productsCollection, where("category", "==", categories));
+        const datos = categories ? await getDocs(filtro) : await getDocs(productsCollection);
+  
+        const result = datos.docs.map(doc => {
+          return {...doc.data(), id: doc.id}
+        })
+
+        setProducts(result)
       } catch (error) {
         setProducts(error)
         console.log(error)

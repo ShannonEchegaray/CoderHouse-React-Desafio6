@@ -22,7 +22,7 @@ const ItemDetail = ({item}) => {
   return (
     <div className="ItemDetail">
         <div className="ItemDetailImg">
-            <img src={item.img} alt={item.alt} />
+            <img src={item.image} alt={item.alt} />
         </div>
         <div className="ItemDetails">
             <p className="ItemDetailTitle">{item.name}</p>

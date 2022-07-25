@@ -7,7 +7,7 @@ const Item = ({item}) => {
     <Link className='a' to={`/products/${item.category}/${item.id}`}>
       <div className="Item">
           <div className="ItemImg">
-              <img src={item.img} alt={item.alt} />
+              <img src={item.image} alt={item.alt} />
           </div>
           <div>
               <p className="ItemTitle">{item.name}</p>

@@ -4,14 +4,10 @@ import PulseLoader from "react-spinners/PulseLoader";
 import "./ItemDetailContainer.css";
 import {productos} from "../../data/productos"
 import {useParams} from "react-router-dom";
+import {db} from "../firebase/firebase"
+import {collection, getDoc, doc} from "firebase/firestore"
 
-const promise = () => {
-  return new Promise((res, rej) => {
-    setTimeout(() => {
-        res(productos);
-    }, 2000);
-  });
-}
+
 
 const ItemDetailContainer = () => {
 
@@ -22,10 +18,13 @@ const ItemDetailContainer = () => {
 
   useEffect(() => {
     const getItem = async () => {
+      
       try {
-        const datos = await promise();
-        const filtro = datos.filter(el => el.id === id)
-        setProduct(filtro[0]);
+        setLoading(true);
+        const productsCollection = collection(db, "productos");
+        const datos = await getDoc(await doc(productsCollection, id));
+        const result = {...datos.data(), id: datos.id};
+        setProduct(result);
       } catch (error) {
         setProduct(new Error(error))
       } finally {
