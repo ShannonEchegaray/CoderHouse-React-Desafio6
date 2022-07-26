@@ -11,7 +11,7 @@ const ItemCart = ({item, borrarItem}) => {
     <tr>
         <td>{item.id}</td>
         <td>{item.name}</td>
-        <td>{item.price}</td>
+        <td>${item.price}</td>
         <td>{item.qty}</td>
         <td>
             <Tooltip title="Borrar Articulo" placement='right'>

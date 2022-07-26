@@ -7,13 +7,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CartContext from './components/CartContext';
 
 const App = () => {
+
   return (
     <div className="App">
       <BrowserRouter>
         <CartContext>
           <NavBar />
-          {/* <ItemListContainer greeting="Shannon"/>
-          <ItemDetailContainer /> */}
           <Routes>
             <Route path="/" element={<ItemListContainer />} />
             <Route path="/our-products" element={<ItemListContainer />}></Route>
