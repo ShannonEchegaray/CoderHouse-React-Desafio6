@@ -14,6 +14,7 @@ const Cart = () => {
   const { items, removerItem, calcularTotal, limpiar } = useContext(contexto)
   const [form, setForm] = useState(false)
   const [compra, setCompra] = useState(false)
+  const [idVenta, setIdVenta] = useState("")
 
   const finalizarCompra = async (datoComprador) => {
     const ventasCollection = collection(db, "ventas");
@@ -24,9 +25,10 @@ const Cart = () => {
       total: calcularTotal()
     })
 
-    const document = await (await getDoc(await doc(ventasCollection, refDoc.id))).data()
+    const document = await (await getDoc(await doc(ventasCollection, refDoc.id)))
+    setIdVenta(document.id)
 
-    document.items.forEach( async (el) => {
+    document.data().items.forEach( async (el) => {
       const documentoRef = doc(db, "productos", el.id)
       const documento = await getDoc(documentoRef)
       const producto = documento.data()
@@ -76,7 +78,7 @@ const Cart = () => {
         </table>
         {form ? <Formulario finalizar={finalizarCompra}/> : null}
         </>)
-        : <h4>No hay productos en el carrito <br />
+        : <h4>{idVenta ? `Gracias por comprar, su id es ${idVenta}`  : "No hay productos en el carrito"} <br />
           vaya a comprar mas <Link className='a' style={{fontWeight: "800"}} to="/">Aqui</Link></h4>
       }
 
