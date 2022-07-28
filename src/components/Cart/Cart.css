@@ -29,3 +29,12 @@ tbody tr:nth-child(odd) {
     background-color: #d8bdae;
   }
   
+.buttonCompra{
+    text-decoration: none;
+    margin: 0 2px;
+    padding: 0.7em;
+    border-radius: 10px;
+    background-color: #157A6E;
+    color: white;
+    border: none;
+}
